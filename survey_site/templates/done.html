@@ -1,4 +1,42 @@
-@app.route("/done")
-def done():
-    return "TEST DONE PAGE"
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Спасибо</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .check {
+            font-size: 48px;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <div class="check">✅</div>
+    <h1>Спасибо за участие!</h1>
+    <p>Ты выбрал: <b>{{ genre }}</b></p>
+    <p>Ответ сохранён</p>
+</div>
+
+</body>
+</html>
 
