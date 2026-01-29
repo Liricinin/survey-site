@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, make_response
+from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
@@ -6,10 +6,13 @@ app = Flask(__name__)
 def index():
     if request.method == "POST":
         genre = request.form.get("genre")
-        return redirect(f"/done?genre={genre}")
+        return redirect(url_for("done", genre=genre))
     return render_template("survey.html")
 
 @app.route("/done")
 def done():
-    choice = request.args.get("genre")
-    return render_template("done.html", choice=choice)
+    genre = request.args.get("genre", "—")
+    return render_template("done.html", genre=genre)
+
+if __name__ == "__main__":
+    app.run()
