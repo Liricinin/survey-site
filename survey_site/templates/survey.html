@@ -1,13 +1,17 @@
-from flask import Flask, render_template, request
-
-app = Flask(__name__)
-
-@app.route("/", methods=["GET", "POST"])
-def index():
-    if request.method == "POST":
-        answer = request.form.get("genre")
-        return f"Ты выбрал: {answer}"
-    return render_template("survey.html")
-
-if name == "__main__":
-    app.run()
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Опрос</title>
+</head>
+<body>
+    <h2>Какой жанр литературы больше нравится?</h2>
+    <form method="post">
+        <label><input type="radio" name="genre" value="Древнерусская"> Древнерусская литература</label><br>
+        <label><input type="radio" name="genre" value="Современная"> Современная литература</label><br>
+        <label><input type="radio" name="genre" value="Другое"> Другое</label><br>
+        <label><input type="radio" name="genre" value="Не читаю"> Не читаю</label><br><br>
+        <button type="submit">Отправить</button>
+    </form>
+</body>
+</html>
