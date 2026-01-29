@@ -1,18 +1,19 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
 @app.route("/", methods=["GET", "POST"])
-def survey():
+def index():
     if request.method == "POST":
-        genre = request.form.get("genre")
-        print("Ответ:", genre)  # для логов
-        return redirect(url_for("done"))
-    return render_template("survey.html")
+        return "СПАСИБО, ОПРОС ПРОЙДЕН"
+    return """
+    <form method="post">
+      <p>Какой жанр нравится?</p>
+      <input type="radio" name="genre" value="Древнерусская"> Древнерусская<br>
+      <input type="radio" name="genre" value="Современная"> Современная<br>
+      <input type="submit">
+    </form>
+    """
 
-@app.route("/done")
-def done():
-    return render_template("done.html")
-
-if __name__ == "__main__":
-    app.run(debug=True)
+if name == "__main__":
+    app.run()
