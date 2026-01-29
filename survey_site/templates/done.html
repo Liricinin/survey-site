@@ -2,10 +2,57 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Готово</title>
+    <title>Спасибо!</title>
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            font-family: Arial, sans-serif;
+        }
+
+        .card {
+            background: white;
+            padding: 40px 35px;
+            border-radius: 18px;
+            width: 100%;
+            max-width: 420px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+        }
+
+        h2 {
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .choice {
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        .emoji {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .hint {
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
 </head>
 <body>
-    <h2>Спасибо 💚</h2>
-    <p>Ваш ответ сохранён.</p>
+
+<div class="card">
+    <div class="emoji">✅</div>
+    <h2>Спасибо за участие!</h2>
+    <div class="choice">Ты выбрал: <b>{{ choice }}</b></div>
+    <div class="hint">Опрос успешно отправлен</div>
+</div>
+
 </body>
 </html>
