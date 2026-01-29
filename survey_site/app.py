@@ -1,26 +1,37 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, make_response
+import requests
 
 app = Flask(__name__)
+
+# 🔴 ВСТАВЬ СЮДА
+BOT_TOKEN = "8558607119:AAFOGlDrITQ3IFMcYiDVXeQnNp_Y_jgwz5c"
+CHAT_ID = "8558607119:AAFOGlDrITQ3IFMcYiDVXeQnNp_Y_jgwz5c"
+
+def send_to_telegram(text):
+    url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
+    data = {
+        "chat_id": CHAT_ID,
+        "text": text
+    }
+    requests.post(url, data=data)
 
 @app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
-        genre = request.form.get("genre")
+        answer = request.form.get("genre")
 
-        # сохраняем ответ
-        with open("answers.txt", "a", encoding="utf-8") as f:
-            f.write(genre + "\n")
+        # ✈️ отправка в Telegram
+        send_to_telegram(f"📩 Новый ответ:\n{answer}")
 
-        return redirect("/done?genre=" + genre)
+        response = make_response(redirect("/done"))
+        response.set_cookie("survey_done", "yes", max_age=60*60*24*365)
+        return response
 
     return render_template("survey.html")
 
-
 @app.route("/done")
 def done():
-    genre = request.args.get("genre")
-    return render_template("done.html", genre=genre)
-
+    return render_template("done.html")
 
 if __name__ == "__main__":
     app.run()
