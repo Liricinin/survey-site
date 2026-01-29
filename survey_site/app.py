@@ -16,7 +16,7 @@ def send_to_telegram(text):
     }
 
     r = requests.post(url, data=data)
-    print(r.text)
+    print("SEND TO TG CALLED")
 
 
 @app.route("/", methods=["GET", "POST"])
