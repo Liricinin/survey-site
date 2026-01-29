@@ -24,7 +24,7 @@ def index():
  
 
     if request.method == "POST":
-        answer = request.form.get("answer")
+        answer = request.form.get("genre")
 
         if answer:
             send_to_telegram(f"📊 Новый ответ:\n{answer}")
