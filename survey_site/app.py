@@ -22,5 +22,5 @@ def done():
     return render_template("done.html", genre=genre)
 
 
-if name == "__main__":
+if __name__ == "__main__":
     app.run()
