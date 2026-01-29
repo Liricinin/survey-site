@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 
 BOT_TOKEN = "8558607119:AAFOGlDrITQ3IFMcYiDVXeQnNp_Y_jgwz5c"
-CHAT_ID = "Т8558607119"
+CHAT_ID = "8558607119"
 
 
 def send_to_telegram(text):
