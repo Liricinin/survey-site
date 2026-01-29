@@ -2,35 +2,105 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Опрос</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+        }
+
+        .container {
+            max-width: 420px;
+            margin: 40px auto;
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            font-size: 22px;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            font-size: 18px;
+            padding: 14px;
+            margin-bottom: 12px;
+            border-radius: 10px;
+            background: #f7f7f7;
+            cursor: pointer;
+        }
+
+        input[type="radio"] {
+            transform: scale(1.4);
+            margin-right: 12px;
+        }
+
+        button {
+            width: 100%;
+            padding: 16px;
+            font-size: 18px;
+            border: none;
+            border-radius: 12px;
+            background: #4CAF50;
+            color: white;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                margin: 20px;
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-<h2>Какой жанр литературы больше нравится?</h2>
+<div class="container">
+    <h2>Какой жанр литературы больше нравится?</h2>
 
-<form method="post">
-    <label>
-        <input type="radio" name="genre" value="Древнерусская" required>
-        Древнерусская литература
-    </label><br>
+    <form method="post">
+        <label>
+            <input type="radio" name="answer" value="Древнерусская" required>
+            Древнерусская литература
+        </label>
 
-    <label>
-        <input type="radio" name="genre" value="Современная">
-        Современная литература
-    </label><br>
+        <label>
+            <input type="radio" name="answer" value="Современная">
+            Современная литература
+        </label>
 
-    <label>
-        <input type="radio" name="genre" value="Другое">
-        Другое
-    </label><br>
+        <label>
+            <input type="radio" name="answer" value="Другое">
+            Другое
+        </label>
 
-    <label>
-        <input type="radio" name="genre" value="Не читаю">
-        Не читаю
-    </label><br><br>
+        <label>
+            <input type="radio" name="answer" value="Не читаю">
+            Не читаю
+        </label>
 
-    <button type="submit">Отправить</button>
-</form>
+        <button type="submit">Отправить</button>
+    </form>
+</div>
 
 </body>
 </html>
