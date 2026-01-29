@@ -20,8 +20,6 @@ def send_to_telegram(text):
 @app.route("/", methods=["GET", "POST"])
 def index():
  
-    if request.cookies.get("survey_done"):
-        return redirect("/done")
 
     if request.method == "POST":
         answer = request.form.get("answer")
