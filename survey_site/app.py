@@ -14,7 +14,8 @@ def send_to_telegram(text):
         "chat_id": CHAT_ID,
         "text": text
     }
-    requests.post(url, data=data)
+    r = requests.post(url, data=data)
+print(r.text)
 
 
 @app.route("/", methods=["GET", "POST"])
